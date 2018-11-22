@@ -48,7 +48,7 @@ plugins:
 
 functions:
   run:
-    memorySize: 1536
+    memorySize: 3008
     timeout: 300
     handler: src/run.default
     events:
