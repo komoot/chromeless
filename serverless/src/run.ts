@@ -14,6 +14,8 @@ export default async (
   let timeout
   let executionCheckInterval
 
+  let commands = 0
+
   debug('Invoked with data: ', channelId, options)
 
   const chrome = new LocalChrome({
@@ -47,6 +49,7 @@ export default async (
       endingInvocation = true
       clearInterval(executionCheckInterval)
       clearTimeout(timeout)
+      commands = 0
 
       channel.unsubscribe(TOPIC_END, () => {
         channel.publish(TOPIC_END, JSON.stringify({ channelId, chrome: true, ...topic_end_data }), {
@@ -106,6 +109,7 @@ export default async (
           clearTimeout(timeout)
 
           debug(`Message from ${TOPIC_REQUEST}`, message)
+          debug(`Command count so far: ${commands}`)
 
           const command = JSON.parse(message)
 
@@ -129,6 +133,8 @@ export default async (
           }
 
           timeout = newTimeout()
+
+          commands++
         }
       })
     })
