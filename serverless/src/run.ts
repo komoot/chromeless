@@ -60,8 +60,8 @@ export default async (
 
           await chrome.close()
           await chromeInstance.kill()
-          
-          debug(ls('/tmp/chrome.*'))
+
+          debug(ls('/tmp/'))
           rm('-rf', '/tmp/chrome.*')
 
           callback()
