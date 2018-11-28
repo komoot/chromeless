@@ -23,6 +23,7 @@
     "serverless": "^1.19.0",
     "serverless-offline": "^3.15.3",
     "serverless-plugin-chrome": "1.0.0-53",
-    "serverless-plugin-typescript": "^1.0.0"
+    "serverless-plugin-typescript": "^1.0.0",
+    "shelljs": "^0.8.3"
   }
 }

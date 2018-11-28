@@ -1,4 +1,5 @@
 import 'source-map-support/register'
+import shelljs from 'shelljs'
 import { LocalChrome, Queue, ChromelessOptions } from 'chromeless'
 import { connect as mqtt, MqttClient } from 'mqtt'
 import { createPresignedURL, debug } from './utils'
@@ -59,6 +60,8 @@ export default async (
 
           await chrome.close()
           await chromeInstance.kill()
+
+          shelljs.rm('-rf', '/tmp/chrome.*')
 
           callback()
         })
