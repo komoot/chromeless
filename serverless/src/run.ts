@@ -62,7 +62,7 @@ export default async (
           await chromeInstance.kill()
 
           debug(ls('/tmp/'))
-          rm('-rf', '/tmp/chrome.*')
+          rm('-rf', '/tmp/core.*')
 
           callback()
         })
